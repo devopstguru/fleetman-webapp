@@ -3,7 +3,7 @@ pipeline {
 
    environment {
      // You must set the following environment variables
-     // ORGANIZATION_NAME
+     ORGANIZATION_NAME = "devopstguru"
      // YOUR_DOCKERHUB_USERNAME (it doesn't matter if you don't have one)
      
      SERVICE_NAME = "fleetman-webapp"
