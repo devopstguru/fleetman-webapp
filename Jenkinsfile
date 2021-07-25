@@ -26,15 +26,9 @@ pipeline {
       stage('Build and Push Image') {
          steps {
            sh 'docker image build -t ${REPOSITORY_TAG} .'
+           sh docker image push ${REPOSITORY_TAG}
          }
       }
-      stange ('push image'){
-        script {
-          docker.withRegistry( '${REPOSITORY_TAG} ', registryCredential ) {
-            dockerImage.push()
-          }
-      }
-
       stage('Deploy to Cluster') {
           steps {
             sh 'envsubst < ${WORKSPACE}/deploy.yaml | kubectl apply -f -'
